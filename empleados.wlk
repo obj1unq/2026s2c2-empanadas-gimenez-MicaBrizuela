@@ -5,58 +5,75 @@
 // empleados.wlk
 // empleados.wlk
 // empleados.wlk
+// empleados.wlk
+// empleados.wlk
+// empleados.wlk
+// empleados.wlk
+// empleados.wlk
 //Escribir aqui los objetos
 //Escribir aqui los objetos
 object galvan {
-  var property sueldo = 15000
-  var deuda = 0
-  var dinero = 0
+var sueldo = 15000
+var dinero = 0
+var deuda = 0
+
+  method sueldo() = sueldo
   
-//   method sueldo() = sueldo
-  
-//   method sueldo(_sueldo) {
-//     sueldo = _sueldo
-//   }
+  method sueldo(_sueldo) {
+    sueldo = _sueldo
+  }
 
   method recibirSueldo() {
-    deuda -= sueldo
-    if (deuda < 0) {
-        dinero += -(deuda)
-        deuda = 0
+    dinero += sueldo
+    self.pagarDeudas()
+  }
+
+  method pagarDeudas(){
+    if (deuda > dinero) {
+      deuda -= dinero
+      dinero = 0
+    }
+    else {
+      dinero -= deuda
+      deuda = 0
     }
   }
   
   method deuda() = deuda
   
   method dinero() = dinero
-  
+
   method gastar(monto) {
-    if (dinero > monto) {
-        dinero -= monto
+    if (monto > dinero) {
+      deuda += monto - dinero
+      dinero = 0
     }
-    else
-        deuda += monto-dinero
-        dinero = 0
+    else {
+      dinero -= monto
+    }
   }
 
 }
 
 object baigorria {
-  var sueldo = 0
+  var ventas = 0
   var totalCobrado = 0
 
   method totalCobrado() = totalCobrado
   
   method vender(_ventas) {
-    sueldo += 15 * _ventas
+    ventas += _ventas
+    // sueldo += 15 * _ventas
   }
 
   method recibirSueldo(){
-    totalCobrado += sueldo
-    sueldo = 0
+    totalCobrado += self.sueldo()
+    ventas = 0
   }
   
-  method sueldo() = sueldo
+  method sueldo() {
+    return 15 * ventas
+  } 
 }
 
 object gimenez {
