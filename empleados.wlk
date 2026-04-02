@@ -13,7 +13,7 @@
 //Escribir aqui los objetos
 //Escribir aqui los objetos
 object galvan {
-var sueldo = 15000
+var sueldo = 15000 //preguntar si puedo usaasr property
 var dinero = 0
 var deuda = 0
 
@@ -25,7 +25,7 @@ var deuda = 0
 
   method recibirSueldo() {
     dinero += sueldo
-    self.pagarDeudas()
+    self.pagarDeudas() //preguntar si un if con efecto deberia ser separado por la respossibilidad del metodo
   }
 
   method pagarDeudas(){
@@ -63,7 +63,7 @@ object baigorria {
   
   method vender(_ventas) {
     ventas += _ventas
-    // sueldo += 15 * _ventas
+    // sueldo += 15 * _ventas PRECALCULO
   }
 
   method recibirSueldo(){
@@ -71,7 +71,7 @@ object baigorria {
     ventas = 0
   }
   
-  method sueldo() {
+  method sueldo() { //antes getter
     return 15 * ventas
   } 
 }
