@@ -13,7 +13,7 @@
 //Escribir aqui los objetos
 //Escribir aqui los objetos
 object galvan {
-var sueldo = 15000 //preguntar si puedo usaasr property
+var sueldo = 15000 //preguntar si puedo usaasr property, si porque necesita ambos accessors (getter y setter).
 var dinero = 0
 var deuda = 0
 
@@ -25,10 +25,10 @@ var deuda = 0
 
   method recibirSueldo() {
     dinero += sueldo
-    self.pagarDeudas() //preguntar si un if con efecto deberia ser separado por la respossibilidad del metodo
+    self.pagarDeudas() //preguntar si un if con efecto deberia ser separado por la resposibilidad del metodo
   }
 
-  method pagarDeudas(){
+  method pagarDeudas(){ //esta bien separar en subtareas con sentencias, pero tambien tener en cuenta que if es una expresion.
     if (deuda > dinero) {
       deuda -= dinero
       dinero = 0
@@ -62,8 +62,8 @@ object baigorria {
   method totalCobrado() = totalCobrado
   
   method vender(_ventas) {
-    ventas += _ventas
-    // sueldo += 15 * _ventas PRECALCULO
+    ventas += _ventas //esto esta bien porque es una accion sobre un atributo, estaria haciendo cosas de mas sino.
+    // sueldo += 15 * _ventas PRECALCULO? si
   }
 
   method recibirSueldo(){
@@ -71,8 +71,8 @@ object baigorria {
     ventas = 0
   }
   
-  method sueldo() { //antes getter
-    return 15 * ventas
+  method sueldo() { //DUDA: antes getter
+    return 15 * ventas // calculo que devuelve un valor, por eso esta bien
   } 
 }
 
