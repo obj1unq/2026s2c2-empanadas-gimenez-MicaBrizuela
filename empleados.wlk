@@ -13,7 +13,7 @@
 //Escribir aqui los objetos
 //Escribir aqui los objetos
 object galvan {
-var sueldo = 15000 //preguntar si puedo usaasr property
+var sueldo = 15000 //preguntar si puedo usaasr property, si porque necesita ambos accessors (getter y setter).
 var dinero = 0
 var deuda = 0
 
@@ -25,10 +25,10 @@ var deuda = 0
 
   method recibirSueldo() {
     dinero += sueldo
-    self.pagarDeudas() //preguntar si un if con efecto deberia ser separado por la respossibilidad del metodo
+    self.pagarDeudas() //preguntar si un if con efecto deberia ser separado por la resposibilidad del metodo
   }
 
-  method pagarDeudas(){
+  method pagarDeudas(){ //esta bien separar en subtareas con sentencias, pero tambien tener en cuenta que if es una expresion.
     if (deuda > dinero) {
       deuda -= dinero
       dinero = 0
@@ -56,23 +56,23 @@ var deuda = 0
 }
 
 object baigorria {
-  var ventas = 0
+  var cantVentas = 0 //nombres: Referencia al tipo de objeto al que apunto.
   var totalCobrado = 0
 
   method totalCobrado() = totalCobrado
   
-  method vender(_ventas) {
-    ventas += _ventas
-    // sueldo += 15 * _ventas PRECALCULO
+  method vender(_cantVentas) { //NOMBRES
+    cantVentas += _cantVentas //esto esta bien porque es una accion sobre un atributo, estaria haciendo cosas de mas sino.
+    // sueldo += 15 * _ventas PRECALCULO? si
   }
 
   method recibirSueldo(){
     totalCobrado += self.sueldo()
-    ventas = 0
+    cantVentas = 0
   }
   
-  method sueldo() { //antes getter
-    return 15 * ventas
+  method sueldo() { //DUDA: antes getter
+    return 15 * cantVentas // calculo que devuelve un valor, por eso esta bien
   } 
 }
 
@@ -86,6 +86,7 @@ object gimenez {
     fondo -= empleado.sueldo()
     empleado.recibirSueldo()
   }
+<<<<<<< HEAD
 
   method validarPago(empleado){
     if (self.fondo() < empleado.sueldo()) {
@@ -93,3 +94,10 @@ object gimenez {
     }
   }
 }
+=======
+}
+
+//TO DO: Eliminar magoc numbers: como el 15 wn sueldo de baifgorra.
+//TO DO: Revisar que los nombres aludan al objeto al que apuntan.
+// saldo reemplaza deuda y dinero al ser mas eficiente porque puede ser negativo y positivo.
+>>>>>>> ab5ccd3dedbeb40a5f95309fe9111fdfc11025e1
