@@ -86,7 +86,6 @@ object gimenez {
     fondo -= empleado.sueldo()
     empleado.recibirSueldo()
   }
-<<<<<<< HEAD
 
   method validarPago(empleado){
     if (self.fondo() < empleado.sueldo()) {
@@ -94,10 +93,3 @@ object gimenez {
     }
   }
 }
-=======
-}
-
-//TO DO: Eliminar magoc numbers: como el 15 wn sueldo de baifgorra.
-//TO DO: Revisar que los nombres aludan al objeto al que apuntan.
-// saldo reemplaza deuda y dinero al ser mas eficiente porque puede ser negativo y positivo.
->>>>>>> ab5ccd3dedbeb40a5f95309fe9111fdfc11025e1
