@@ -1,0 +1,15 @@
+// validarPago.wtest
+import empleados.*
+
+test "Gimenez tiene $300000, trata de pagarle a galvan $300001"{
+    galvan.sueldo(gimenez.fondo() + 1)
+    assert.throwsException({gimenez.pagarSueldo(galvan)})
+    assert.equals(300000,gimenez.fondo())
+}
+
+test "Gimenez tiene $300000, trata de pagarle a galvan $0"{
+    galvan.sueldo(0)
+    gimenez.pagarSueldo(galvan)
+    assert.equals(300000, gimenez.fondo())
+    assert.equals(0, galvan.dinero())
+}
