@@ -82,7 +82,14 @@ object gimenez {
   method fondo() = fondo
   
   method pagarSueldo(empleado) {
+    self.validarPago(empleado)
     fondo -= empleado.sueldo()
     empleado.recibirSueldo()
+  }
+
+  method validarPago(empleado){
+    if (self.fondo() < empleado.sueldo()) {
+      self.error("Gimenez no tiene fondos suficientes para pagar este sueldo")
+    }
   }
 }
