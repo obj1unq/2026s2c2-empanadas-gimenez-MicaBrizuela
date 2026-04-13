@@ -57,3 +57,8 @@ Tener en cuenta este escenario
 * Modelar objetos
 * Polimorfismo entre Baigorria y Galván.
  * Para pensar: ¿qué mensajes entiende cada uno? ¿qué efecto produce al utilizar ambos objetos en el REPL?
+
+
+# Casos de test y excepciones.
+1. Agregar validación al ejercicio de Empanadas Giménez de manera que se dispare un error cuando no se tiene suficiente dinero para pagar el sueldo de una persona. 
+2. Agregar también 2 casos de test relacionados con esto
